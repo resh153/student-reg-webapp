@@ -18,11 +18,6 @@ pipeline{
   maven 'maven-3.9.0'
 }
 stages {
-  stage('git clone') {
-    steps {
-        git branch: 'main', credentialsId: 'gihub-cred', url: 'https://github.com/resh153/student-reg-webapp.git'
-    }
-  }
   stage('mvn clean package') {
     steps {
         sh "mvn clean package"
