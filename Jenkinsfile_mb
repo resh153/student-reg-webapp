@@ -40,7 +40,9 @@ stages {
     }
     stage('deploy  to devserver') {
         when {
-            branch 'development'
+          expression {
+            return env.BRANCH_NAME == 'development'
+          }
         }
         steps {
             sshagent(['tomcat_server']) {
